@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Foundation
 
 /**
  A `Realm` instance (also referred to as "a Realm") represents a Realm database.

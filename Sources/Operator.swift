@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Foundation
 import ObjectMapper
 
 // MARK: - Operators

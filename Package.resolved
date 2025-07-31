@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ObjectMapper",
+        "repositoryURL": "https://github.com/tristanhimmelman/ObjectMapper.git",
+        "state": {
+          "branch": null,
+          "revision": "5804d5446eb68b56c61497656cbc7bb6652f069b",
+          "version": "3.5.3"
+        }
+      },
+      {
+        "package": "RealmCore",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "512dfaa4f59930e193c92e00ba1924bde69b19de",
+          "version": "5.23.5"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "40732f2ec0cdc32d9d3df8219b2e655deb3077f1",
+          "version": "3.21.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
