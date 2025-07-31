@@ -33,7 +33,7 @@ let package = Package(
             // Giả sử mã nguồn chính của framework RealmS nằm trong thư mục 'Sources/RealmS'
             // hoặc một thư mục khác trong dự án của bạn (ví dụ: 'RealmS/Classes').
             // Bạn cần chắc chắn rằng đường dẫn này trỏ đúng đến nơi chứa các file mã nguồn .swift của RealmS.
-            path: "Sources/RealmS"
+            path: "Sources/"
         ),
         // Target cho các bài kiểm thử, tương tự như 'Tests' trong Podfile
         .testTarget(
@@ -44,7 +44,7 @@ let package = Package(
                 .product(name: "ObjectMapper", package: "ObjectMapper")
             ],
             // Đảm bảo đường dẫn này trỏ đến mã nguồn của các bài kiểm thử
-            path: "Tests/RealmSTests" // Ví dụ: đặt các bài kiểm thử trong 'Tests/RealmSTests'
+            path: "Tests/" // Ví dụ: đặt các bài kiểm thử trong 'Tests/RealmSTests'
         )
         // SwiftLint là một công cụ phân tích mã, không phải dependency runtime.
         // Bạn sẽ không thêm nó vào dependencies của gói SPM theo cách này.
