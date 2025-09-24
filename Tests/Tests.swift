@@ -13,8 +13,17 @@ import ObjectMapper
 
 class Tests: XCTestCase {
 
+    private static let setupRealmOnce: Void = {
+        var config = Realm.Configuration.defaultConfiguration
+        config.deleteRealmIfMigrationNeeded = true
+        Realm.Configuration.defaultConfiguration = config
+        RealmS.onError { (_, error, _) in
+            XCTAssertThrowsError(error)
+        }
+    }()
+
     let jsUsers: [[String: Any]] = {
-        guard let url = Bundle(for: Tests.self).url(forResource: "users", withExtension: "json") else {
+        guard let url = Bundle.module.url(forResource: "users", withExtension: "json") else {
             fatalError("Missing resource.")
         }
 
@@ -69,14 +78,7 @@ class Tests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        DispatchOnce {
-            var config = Realm.Configuration.defaultConfiguration
-            config.deleteRealmIfMigrationNeeded = true
-            Realm.Configuration.defaultConfiguration = config
-            RealmS.onError { (_, error, _) in
-                XCTAssertThrowsError(error)
-            }
-        }
+        _ = Tests.setupRealmOnce
     }
 
     override func tearDown() {

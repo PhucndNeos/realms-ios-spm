@@ -245,8 +245,7 @@ public final class RealmS {
      key), and update it. Otherwise, the object will be added.
      */
     public func add<T: Object>(_ object: T) {
-        let update = T.primaryKey() != nil
-        realm.add(object, update: update)
+        realm.add(object, update: .all)
     }
 
     /**
@@ -261,9 +260,8 @@ public final class RealmS {
      */
     public func add<S: Sequence>(_ objects: S) where S.Iterator.Element: Object {
         typealias Element = S.Iterator.Element
-        let update = Element.primaryKey() != nil
         for obj in objects {
-            realm.add(obj, update: update)
+            realm.add(obj, update: .all)
         }
     }
 
@@ -293,9 +291,7 @@ public final class RealmS {
      */
     @discardableResult
     public func create<T: Object>(_ type: T.Type, value: Any = [:]) -> T {
-        let typeName = (type as Object.Type).className()
-        let update = schema[typeName]?.primaryKeyProperty != nil
-        return realm.create(type, value: value, update: update)
+        return realm.create(type, value: value, update: .all)
     }
 
     /**
@@ -330,8 +326,7 @@ public final class RealmS {
      */
     @discardableResult
     public func dynamicCreate(_ typeName: String, value: Any = [:]) -> DynamicObject! {
-        let update = schema[typeName]?.primaryKeyProperty != nil
-        return realm.dynamicCreate(typeName, value: value, update: update)
+        return realm.dynamicCreate(typeName, value: value, update: .all)
     }
 
     // MARK: Deleting objects

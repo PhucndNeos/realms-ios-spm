@@ -62,7 +62,7 @@ extension RealmS {
      - parameter jsPk: primary key of JSON, default is equal to `primaryKey`.
      - returns: cached object.
      */
-    public func object<T: Object>(ofType type: T.Type, forMapping map: Map, jsonPrimaryKey jsPk: String? = T.primaryKey()) -> T? where T: BaseMappable {
+    public func object<T: Object>(ofType type: T.Type, forMapping map: ObjectMapper.Map, jsonPrimaryKey jsPk: String? = T.primaryKey()) -> T? where T: BaseMappable {
         guard let pk = T.primaryKey(), let jsPk = jsPk else {
             return T()
         }

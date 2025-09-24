@@ -9,6 +9,7 @@
 import RealmSwift
 import ObjectMapper
 import RealmS
+import Foundation
 
 final class User: Object, StaticMappable {
     @objc dynamic var id = ""
@@ -21,14 +22,14 @@ final class User: Object, StaticMappable {
         return "id"
     }
 
-    func mapping(map: Map) {
+    func mapping(map: ObjectMapper.Map) {
         name <- map["name"]
         address <- map["address"]
         dogs <- map["dogs"]
         cats <- map["cats"]
     }
 
-    static func objectForMapping(map: Map) -> BaseMappable? {
+    static func objectForMapping(map: ObjectMapper.Map) -> BaseMappable? {
         return RealmS().object(ofType: self, forMapping: map)
     }
 }
@@ -42,11 +43,11 @@ final class Address: Object, Mappable {
 
     let users = LinkingObjects(fromType: User.self, property: "address")
 
-    convenience required init?(map: Map) {
+    convenience required init?(map: ObjectMapper.Map) {
         self.init()
     }
 
-    func mapping(map: Map) {
+    func mapping(map: ObjectMapper.Map) {
         street <- map["street"]
         city <- map["city"]
         country <- map["country"]
@@ -69,11 +70,11 @@ final class Phone: Object, StaticMappable {
         return "number"
     }
 
-    func mapping(map: Map) {
+    func mapping(map: ObjectMapper.Map) {
         type <- map["type"]
     }
 
-    static func objectForMapping(map: Map) -> BaseMappable? {
+    static func objectForMapping(map: ObjectMapper.Map) -> BaseMappable? {
         return RealmS().object(ofType: self, forMapping: map)
     }
 }
@@ -89,12 +90,12 @@ final class Pet: Object, StaticMappable {
         return "id"
     }
 
-    func mapping(map: Map) {
+    func mapping(map: ObjectMapper.Map) {
         name <- map["name"]
         color <- map["color"]
     }
 
-    static func objectForMapping(map: Map) -> BaseMappable? {
+    static func objectForMapping(map: ObjectMapper.Map) -> BaseMappable? {
         return RealmS().object(ofType: self, forMapping: map, jsonPrimaryKey: "pk")
     }
 }
@@ -109,11 +110,11 @@ final class Color: Object, StaticMappable {
         return "hex"
     }
 
-    func mapping(map: Map) {
+    func mapping(map: ObjectMapper.Map) {
         name <- map["name"]
     }
 
-    static func objectForMapping(map: Map) -> BaseMappable? {
+    static func objectForMapping(map: ObjectMapper.Map) -> BaseMappable? {
         return RealmS().object(ofType: self, forMapping: map)
     }
 }

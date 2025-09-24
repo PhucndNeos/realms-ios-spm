@@ -3,7 +3,7 @@
 echo "REPO_SLUG = $REPO_SLUG"
 echo "PR_NUMBER = $PR_NUMBER"
 
-./Pods/SwiftLint/swiftlint lint --reporter json > swiftlint-report.json || false
+swiftlint lint --reporter json > swiftlint-report.json || false
 
 if [[ -z "$PR_NUMBER" ]]; then
     echo 'Not in a Pull Request, skip report.'

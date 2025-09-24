@@ -18,7 +18,7 @@ import ObjectMapper
  - parameter left: Optional variable.
  - parameter right: Map object.
  */
-public func <- <T: Object>(left: inout T?, right: Map) where T: BaseMappable {
+public func <- <T: Object>(left: inout T?, right: ObjectMapper.Map) where T: BaseMappable {
     if right.mappingType == MappingType.fromJSON {
         if !right.isKeyPresent { return }
         guard let value = right.currentValue else {
@@ -52,7 +52,7 @@ public func <- <T: Object>(left: inout T!, right: Map) where T: BaseMappable {
  - parameter left: mapped variable.
  - parameter right: Map object.
  */
-public func <- <T: Object>(left: List<T>, right: Map) where T: BaseMappable {
+public func <- <T: Object>(left: List<T>, right: ObjectMapper.Map) where T: BaseMappable {
     if right.mappingType == MappingType.fromJSON {
         if !right.isKeyPresent { return }
         left.removeAll()
@@ -75,6 +75,6 @@ public func <- <T: Object>(left: List<T>, right: Map) where T: BaseMappable {
  - parameter right: Map object.
  */
 @available( *, deprecated: 1, message: "Relation must be marked as being optional or implicitly unwrapped optional.")
-public func <- <T: Object>(left: inout T, right: Map) where T: BaseMappable {
+public func <- <T: Object>(left: inout T, right: ObjectMapper.Map) where T: BaseMappable {
     assertionFailure("Deprecated: Relation must be marked as being optional or implicitly unwrapped optional.")
 }

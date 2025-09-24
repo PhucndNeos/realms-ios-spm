@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         // Khai báo các dependency bên ngoài mà RealmS sử dụng
         // RealmSwift tương đương với 'RealmSwift', '~> 3.0'
-        .package(url: "https://github.com/realm/realm-swift.git", .upToNextMajor(from: "3.0.0")),
+        .package(url: "https://github.com/realm/realm-swift.git", from: "10.44.0"),
         // ObjectMapper tương đương với 'ObjectMapper', '~> 3.0'
         .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "3.0.0"))
     ],
@@ -35,20 +35,18 @@ let package = Package(
             // Bạn cần chắc chắn rằng đường dẫn này trỏ đúng đến nơi chứa các file mã nguồn .swift của RealmS.
             path: "Sources/"
         ),
-        // Target cho các bài kiểm thử, tương tự như 'Tests' trong Podfile
         .testTarget(
-            name: "RealmSTests", // Đổi tên thành RealmSTests cho rõ ràng
+            name: "RealmSTests",
             dependencies: [
-                "RealmS", // Phụ thuộc vào target RealmS chính
+                "RealmS",
                 .product(name: "RealmSwift", package: "realm-swift"),
                 .product(name: "ObjectMapper", package: "ObjectMapper")
             ],
-            // Đảm bảo đường dẫn này trỏ đến mã nguồn của các bài kiểm thử
-            path: "Tests/" // Ví dụ: đặt các bài kiểm thử trong 'Tests/RealmSTests'
+            path: "Tests/",
+            exclude: ["Supports"],
+            resources: [
+                .process("Resources")
+            ]
         )
-        // SwiftLint là một công cụ phân tích mã, không phải dependency runtime.
-        // Bạn sẽ không thêm nó vào dependencies của gói SPM theo cách này.
-        // Thay vào đó, bạn có thể thiết lập nó như một Run Script Phase trong dự án của mình
-        // hoặc chạy nó như một bước tiền build nếu cần.
     ]
 )
