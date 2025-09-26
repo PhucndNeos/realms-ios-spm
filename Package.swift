@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "RealmS", // Tên gói của bạn, tương ứng với target chính trong Podfile
     platforms: [
-        .iOS(.v8) // Đặt phiên bản iOS tối thiểu từ Podfile của bạn
+        .iOS(.v13),
+        .macOS(.v12)
     ],
     products: [
         // Khai báo sản phẩm chính của bạn
@@ -19,7 +20,7 @@ let package = Package(
         // RealmSwift tương đương với 'RealmSwift', '~> 3.0'
         .package(url: "https://github.com/realm/realm-swift.git", from: "10.44.0"),
         // ObjectMapper tương đương với 'ObjectMapper', '~> 3.0'
-        .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "3.0.0"))
+        .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "4.4.3"))
     ],
     targets: [
         // Target chính cho thư viện RealmS của bạn

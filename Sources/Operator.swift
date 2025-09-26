@@ -40,7 +40,7 @@ public func <- <T: Object>(left: inout T?, right: ObjectMapper.Map) where T: Bas
  - parameter left: Implicitly unwrapped optional variable.
  - parameter right: Map object.
  */
-public func <- <T: Object>(left: inout T!, right: Map) where T: BaseMappable {
+public func <- <T: Object>(left: inout T!, right: ObjectMapper.Map) where T: BaseMappable {
     var object: T? = left
     object <- right
 }
