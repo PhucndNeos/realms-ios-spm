@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "RealmDatabase",
+        "package": "RealmCore",
         "repositoryURL": "https://github.com/realm/realm-core.git",
         "state": {
           "branch": null,
-          "revision": "cccb3ca9e26ec452a29f2f0d4050d1e38b8a3d43",
-          "version": "14.14.0"
+          "revision": "66d79b3c5213fb14d491c1b22193077b488d49a6",
+          "version": "6.2.4"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/realm/realm-swift.git",
         "state": {
           "branch": null,
-          "revision": "54eebd2b5e7a4a8055a7a8b55ac859a48462d722",
-          "version": "10.54.5"
+          "revision": "2dce752b48c3265c63ab04a8c66ddfdf9185f847",
+          "version": "5.5.2"
         }
       }
     ]
