@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         // Khai báo các dependency bên ngoài mà RealmS sử dụng
         // RealmSwift tương đương với 'RealmSwift', '~> 3.0'
-        .package(url: "https://github.com/realm/realm-swift.git", .upToNextMajor(from: "5.5.2")),
+        .package(url: "https://github.com/realm/realm-swift.git", .upToNextMajor(from: "10.10.0")),
         // ObjectMapper tương đương với 'ObjectMapper', '~> 3.0'
         .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "4.4.3"))
     ],
